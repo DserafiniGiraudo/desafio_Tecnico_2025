@@ -1,0 +1,24 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: msvc-puntos-ventas
+
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: ${spring.application.name}/swagger-ui.html
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${server.port}
